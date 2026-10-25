@@ -1,0 +1,7 @@
+# 统一换行符：批处理必须 CRLF，shell 脚本必须 LF，避免跨平台拉下来跑不了
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.service text eol=lf

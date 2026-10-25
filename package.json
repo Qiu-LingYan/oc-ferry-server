@@ -1,0 +1,40 @@
+{
+  "name": "oc-ferry-server",
+  "version": "0.3.1",
+  "description": "Headless OpenAI-compatible endpoint that bridges OpenCode free models to NewAPI. Windows / Linux / macOS.",
+  "type": "module",
+  "main": "src/main.js",
+  "license": "MIT",
+  "author": "Qiu-LingYan (https://github.com/Qiu-LingYan)",
+  "contributors": [
+    "HRuiCcc (original OC Ferry project, https://github.com/HRuiCcc/RuiC-oc-ferry)"
+  ],
+  "homepage": "https://github.com/Qiu-LingYan/oc-ferry-server#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qiu-LingYan/oc-ferry-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Qiu-LingYan/oc-ferry-server/issues"
+  },
+  "keywords": [
+    "opencode",
+    "newapi",
+    "openai-compatible",
+    "llm-proxy",
+    "free-models",
+    "headless"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "smoke": "node smoke.mjs",
+    "test:queue": "node test-queue.mjs"
+  },
+  "dependencies": {
+    "tar": "7.5.22",
+    "undici": "^7.30.0"
+  }
+}

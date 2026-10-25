@@ -1,0 +1,19 @@
+# 运行时数据：opencode 引擎（约 200MB）、会话库、状态、密钥、日志
+data/
+
+# 本地密钥配置：不要提交
+config.cmd
+.env
+
+# 依赖
+node_modules/
+
+# 日志与临时文件
+*.log
+*.tmp
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

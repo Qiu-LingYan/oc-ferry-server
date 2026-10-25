@@ -1,0 +1,14 @@
+@echo off
+rem ============================================================
+rem  OC Ferry Server - local config (NOT committed)
+rem  Copy this file to config.cmd and edit the values.
+rem  config.cmd is gitignored.
+rem ============================================================
+
+set "FERRY_HOST=0.0.0.0"
+set "FERRY_PORT=41980"
+
+rem Shared secret. NewAPI channel must use the same value.
+rem Leave it empty to let the server generate a random key
+rem on first start (written to data\api-key).
+set "FERRY_API_KEY="

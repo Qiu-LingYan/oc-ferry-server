@@ -1,0 +1,24 @@
+services:
+  oc-ferry:
+    build: .
+    image: oc-ferry-server:latest
+    container_name: oc-ferry
+    restart: unless-stopped
+    ports:
+      - "41980:41980"
+    environment:
+      # 从同目录 .env 读取（.env 已 gitignore）。不填则首次启动自动生成到 data/api-key。
+      FERRY_API_KEY: "${FERRY_API_KEY:-}"
+      FERRY_MAX_CONCURRENCY: "2"
+      FERRY_SKIP_PROBE: "1"
+      FERRY_RECYCLE_REQUESTS: "50"
+    volumes:
+      # 持久化 opencode 引擎与判定缓存，重建容器不用重新下载 200MB
+      - ./data:/data
+    # 内存硬上限：超出直接 OOM 重启，避免把宿主机拖死
+    mem_limit: 768m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

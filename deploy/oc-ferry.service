@@ -1,0 +1,28 @@
+[Unit]
+Description=OC Ferry Server - OpenAI-compatible bridge for OpenCode free models
+Documentation=https://github.com/Qiu-LingYan/oc-ferry-server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ocferry
+WorkingDirectory=/opt/oc-ferry-server
+Environment=FERRY_HOST=0.0.0.0
+Environment=FERRY_PORT=41980
+Environment=FERRY_NO_SYNC=1
+Environment=FERRY_MODEL_ID=slug
+Environment=FERRY_SKIP_PROBE=1
+Environment=FERRY_MAX_CONCURRENCY=2
+Environment=FERRY_RECYCLE_REQUESTS=50
+Environment=NODE_OPTIONS=--max-old-space-size=128
+# 改成你自己的密钥；留空则由服务生成到 data/api-key
+Environment=FERRY_API_KEY=
+ExecStart=/usr/bin/node src/main.js
+Restart=always
+RestartSec=5
+# 内存保护：超过 900MB 由内核 OOM 回收后自动重启
+MemoryMax=900M
+
+[Install]
+WantedBy=multi-user.target
